@@ -26,7 +26,7 @@ trait FormattableHandlerTrait
     public function getFormatter()
     {
         if (!($this->formatter instanceof FormatterInterface)) {
-            $this->formatter = new \Zeus\Log\Formatter\LinearFormatter();
+            $this->formatter = new LinearFormatter();
         }
         return $this->formatter;
     }
