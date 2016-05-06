@@ -1,0 +1,31 @@
+{
+    "name": "rafsalvioni/zeus-log",
+    "description": "Provides a log management API",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "log", "zeus", "psr", "handler"
+    ],
+    "homepage": "https://github.com/rafsalvioni/zeus-log",
+    "autoload": {
+        "psr-4": {
+            "Zeus\\Log\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZeusTest\\Log\\": "test/"
+        }
+    },
+    "require": {
+        "php": ">=5.5 <6",
+        "psr/log": "1.0.0",
+        "rafsalvioni/zeus-stream": "1.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.3.0"
+    },
+    "suggest": {
+    },
+    "extra": {
+    }
+}
