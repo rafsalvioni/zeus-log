@@ -2,7 +2,6 @@
 
 namespace Zeus\Log\Handler;
 
-use Zeus\Log\Level;
 use Zeus\Log\Formatter\FormatterInterface;
 
 /**
@@ -22,7 +21,6 @@ abstract class AbstractFormattableHandler extends AbstractHandler implements
     public function __construct($level = 0, FormatterInterface $formatter = null)
     {
         parent::__construct($level);
-        $this->level = Level::toLevel($level);
         if ($formatter) {
             $this->setFormatter($formatter);
         }
