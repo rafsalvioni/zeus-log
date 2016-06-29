@@ -3,7 +3,7 @@
 namespace Zeus\Log\Handler;
 
 use Zeus\Log\Formatter\FormatterInterface;
-use Zeus\Stream\StreamInterface;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * Handle logs to a stream.
