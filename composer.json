@@ -18,7 +18,7 @@
     },
     "require": {
         "php": ">=5.5 <6",
-        "psr/log": "1.0.0",
+        "psr/log": "^1.0",
         "rafsalvioni/zeus-stream": "^2.0"
     },
     "require-dev": {
