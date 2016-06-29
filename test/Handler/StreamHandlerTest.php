@@ -5,7 +5,7 @@ namespace ZeusTest\Log\Handler;
 use Zeus\Log\Logger;
 use Zeus\Log\Handler\StreamHandler;
 use Zeus\Log\Level;
-use Zeus\Stream\OutputStream;
+use Zeus\Stream\Output;
 
 /**
  * 
@@ -22,7 +22,7 @@ class StreamHandlerTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->logger = new Logger(
-            new StreamHandler(OutputStream::getInstance(), Level::maskAll()->getMask())
+            new StreamHandler(Output::getInstance(), Level::maskAll()->getMask())
         );
     }
     

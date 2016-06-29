@@ -3,7 +3,7 @@
 namespace Zeus\Log\Handler;
 
 use Zeus\Log\Formatter\FormatterInterface;
-use Zeus\Stream\Write\WritableStreamInterface;
+use Zeus\Stream\StreamInterface;
 
 /**
  * Handle logs to a stream.
@@ -15,18 +15,18 @@ class StreamHandler extends AbstractFormattableHandler
     /**
      * Writable stream
      * 
-     * @var WritableStreamInterface
+     * @var StreamInterface
      */
     protected $stream;
     
     /**
      * 
-     * @param WritableStreamInterface $stream
+     * @param StreamInterface $stream
      * @param int|string $level
      * @param FormatterInterface $formatter
      */
     public function __construct(
-        WritableStreamInterface $stream,
+        StreamInterface $stream,
         $level = 0,
         FormatterInterface $formatter = null
     ) {
