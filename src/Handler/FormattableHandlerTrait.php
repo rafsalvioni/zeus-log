@@ -23,7 +23,7 @@ trait FormattableHandlerTrait
      * 
      * @return FormatterInterface
      */
-    public function getFormatter()
+    public function getFormatter(): FormatterInterface
     {
         if (!($this->formatter instanceof FormatterInterface)) {
             $this->formatter = new LinearFormatter();
@@ -37,6 +37,7 @@ trait FormattableHandlerTrait
      * @return self
      */
     public function setFormatter(FormatterInterface $formatter)
+        : FormattableHandlerInterface
     {
         $this->formatter = $formatter;
         return $this;

@@ -30,7 +30,7 @@ class HandlerChain implements HandlerInterface
      * 
      * @param bool $bubbling Allow bubbling logs?
      */
-    public function __construct($bubbling = false)
+    public function __construct(bool $bubbling = false)
     {
         $this->isBubbling($bubbling);
     }
@@ -39,9 +39,9 @@ class HandlerChain implements HandlerInterface
      * Attach a logger handler on the end of list.
      * 
      * @param HandlerInterface $handler
-     * @return self
+     * @return HandlerChain
      */
-    public function pushHandler(HandlerInterface $handler)
+    public function pushHandler(HandlerInterface $handler): HandlerChain
     {
         $this->handlers[] = $handler;
         $this->level      = BitMask::addFlag(
@@ -57,10 +57,10 @@ class HandlerChain implements HandlerInterface
      * @param bool $set Bubbling?
      * @return bool
      */
-    public function isBubbling($set = null)
+    public function isBubbling(bool $set = null): bool
     {
         if (!\is_null($set)) {
-            $this->bubbling = (bool)$set;
+            $this->bubbling = $set;
         }
         return $this->bubbling;
     }
@@ -68,9 +68,9 @@ class HandlerChain implements HandlerInterface
     /**
      * 
      * @param array $log
-     * @return self
+     * @return HandlerInterface
      */
-    public function handle(array $log)
+    public function handle(array $log): HandlerInterface
     {
         foreach ($this->handlers as &$handler) {
             if (!isset($log['level']) || !$handler->isHandled($log['level'])) {
@@ -82,7 +82,7 @@ class HandlerChain implements HandlerInterface
                     break;
                 }
             }
-            catch (\Exception $ex) {
+            catch (\Throwable $ex) {
                 continue;
             }
         }

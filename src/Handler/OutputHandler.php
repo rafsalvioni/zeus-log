@@ -14,7 +14,7 @@ class OutputHandler extends AbstractFormattableHandler
      * @param array $log
      * @param string $formatted
      */
-    protected function write(array $log, $formatted)
+    protected function write(array $log, string $formatted)
     {
         echo $formatted . \PHP_EOL;
     }

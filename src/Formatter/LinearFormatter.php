@@ -35,7 +35,7 @@ class LinearFormatter implements FormatterInterface
      * @param array $log
      * @return string
      */
-    public function format(array $log)
+    public function format(array $log): string
     {
         $return         = $this->line;
         $log['date']    = \date('r', $log['timestamp']);

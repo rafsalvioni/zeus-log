@@ -15,14 +15,15 @@ interface FormattableHandlerInterface extends HandlerInterface
      * Define the handler formatter.
      * 
      * @param FormatterInterface $formatter
-     * @return self
+     * @return FormattableHandlerInterface
      */
-    public function setFormatter(FormatterInterface $formatter);
+    public function setFormatter(FormatterInterface $formatter)
+            : FormattableHandlerInterface;
     
     /**
      * Returns the handler formatter.
      * 
      * @return FormatterInterface
      */
-    public function getFormatter();
+    public function getFormatter(): FormatterInterface;
 }

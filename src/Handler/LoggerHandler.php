@@ -21,7 +21,7 @@ class LoggerHandler extends AbstractHandler
     /**
      * 
      * @param LoggerInterface $logger
-     * @param int $level
+     * @param int|string $level
      */
     public function __construct(LoggerInterface $logger, $level = 0)
     {
@@ -32,9 +32,9 @@ class LoggerHandler extends AbstractHandler
     /**
      * 
      * @param array $log
-     * @return self
+     * @return LoggerHandler
      */
-    public function handle(array $log)
+    public function handle(array $log): HandlerInterface
     {
         $level = \strtolower($log['name']);
         $this->logger->log($level, $log['message'], $log['context']);

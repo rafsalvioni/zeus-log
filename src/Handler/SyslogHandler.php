@@ -17,7 +17,7 @@ class SyslogHandler extends AbstractFormattableHandler
      * @param array $log
      * @param string $formatted
      */
-    protected function write(array $log, $formatted)
+    protected function write(array $log, string $formatted)
     {
         $const = '\\LOG_' . \strtoupper($log['name']);
         $level = 0;

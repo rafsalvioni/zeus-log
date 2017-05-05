@@ -87,7 +87,7 @@ class LevelTest extends \PHPUnit_Framework_TestCase
         foreach ($list as $name => $level) {
             $this->assertEquals(Level::getLevelName($level), $name);
         }
-        $this->assertEquals(Level::getLevelName('__FOO__'), null);
+        $this->assertEquals(Level::getLevelName(5855), null);
     }
     
     /**

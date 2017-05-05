@@ -30,9 +30,9 @@ abstract class AbstractFormattableHandler extends AbstractHandler implements
      * Handles the log record using its formatter.
      * 
      * @param array $log
-     * @return self
+     * @return HandlerInterface
      */
-    public function handle(array $log)
+    public function handle(array $log): HandlerInterface
     {
         $message = $this->getFormatter()->format($log);
         $this->write($log, $message);
@@ -45,5 +45,5 @@ abstract class AbstractFormattableHandler extends AbstractHandler implements
      * @param array $log
      * @param string $formatted Formatted message
      */
-    abstract protected function write(array $log, $formatted);
+    abstract protected function write(array $log, string $formatted);
 }

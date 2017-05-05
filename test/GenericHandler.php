@@ -2,7 +2,8 @@
 
 namespace ZeusTest\Log;
 
-use Zeus\Log\Handler\AbstractHandler;
+use Zeus\Log\Handler\AbstractHandler,
+    Zeus\Log\Handler\HandlerInterface;
 
 /**
  *
@@ -21,7 +22,7 @@ class GenericHandler extends AbstractHandler
      * 
      * @param array $log
      */
-    public function handle(array $log)
+    public function handle(array $log): HandlerInterface
     {
         $this->lastLog = $log;
         echo \sprintf('[%s]: %s', $log['name'], $log['message']) . \PHP_EOL;

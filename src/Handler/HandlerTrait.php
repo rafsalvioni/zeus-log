@@ -22,7 +22,7 @@ trait HandlerTrait
      * 
      * @return int
      */
-    public function getHandledLevel()
+    public function getHandledLevel(): int
     {
         return $this->level;
     }
@@ -32,7 +32,7 @@ trait HandlerTrait
      * @param int $level
      * @return bool
      */
-    public function isHandled($level)
+    public function isHandled(int $level): bool
     {
         return BitMask::hasFlag($this->level, $level);
     }

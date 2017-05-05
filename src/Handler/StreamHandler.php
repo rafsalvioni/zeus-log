@@ -39,7 +39,7 @@ class StreamHandler extends AbstractFormattableHandler
      * @param array $log
      * @param string $formatted
      */
-    protected function write(array $log, $formatted)
+    protected function write(array $log, string $formatted)
     {
         $this->stream->write($formatted);
     }

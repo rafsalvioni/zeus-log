@@ -2,7 +2,8 @@
 
 namespace ZeusTest\Log;
 
-use Zeus\Log\Handler\AbstractHandler;
+use Zeus\Log\Handler\AbstractHandler,
+    Zeus\Log\Handler\HandlerInterface;
 
 /**
  *
@@ -14,7 +15,7 @@ class NullHandler extends AbstractHandler
      * 
      * @param array $log
      */
-    public function handle(array $log)
+    public function handle(array $log): HandlerInterface
     {
         return $this;
     }

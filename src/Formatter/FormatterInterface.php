@@ -15,5 +15,5 @@ interface FormatterInterface
      * @param array $log
      * @return string
      */
-    public function format(array $log);
+    public function format(array $log): string;
 }

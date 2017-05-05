@@ -52,7 +52,7 @@ class Logger implements LoggerInterface, EmitterInterface
      */
     public static function setDefault(LoggerInterface $logger)
     {
-        static::$default = $logger;
+        self::$default = $logger;
     }
     
     /**
@@ -60,12 +60,12 @@ class Logger implements LoggerInterface, EmitterInterface
      * 
      * @return LoggerInterface
      */
-    public static function getDefault()
+    public static function getDefault(): LoggerInterface
     {
-        if (empty(static::$default)) {
-            static::$default = new NullLogger();
+        if (empty(self::$default)) {
+            self::$default = new NullLogger();
         }
-        return static::$default;
+        return self::$default;
     }
     
     /**
@@ -75,9 +75,9 @@ class Logger implements LoggerInterface, EmitterInterface
      * @param array $args
      * @return mixed
      */
-    public static function __callStatic($method, $args)
+    public static function __callStatic(string $method, array $args)
     {
-        return \call_user_func_array([static::getDefault(), $method], $args);
+        return \call_user_func_array([self::getDefault(), $method], $args);
     }
     
     /**
@@ -85,10 +85,10 @@ class Logger implements LoggerInterface, EmitterInterface
      * @param HandlerInterface $handler
      * @param bool $default Set the instance as default logger?
      */
-    public function __construct(HandlerInterface $handler, $default = false)
+    public function __construct(HandlerInterface $handler, bool $default = false)
     {
-        if ($default || empty(static::$default)) {
-            static::setDefault($this);
+        if ($default || empty(self::$default)) {
+            self::setDefault($this);
         }
         $this->setHandler($handler);
     }
@@ -97,9 +97,9 @@ class Logger implements LoggerInterface, EmitterInterface
      * Define the logger handler.
      * 
      * @param HandlerInterface $handler
-     * @return self
+     * @return Logger
      */
-    public function setHandler(HandlerInterface $handler)
+    public function setHandler(HandlerInterface $handler): Logger
     {
         $this->handler = $handler;
         return $this;
@@ -110,7 +110,7 @@ class Logger implements LoggerInterface, EmitterInterface
      * 
      * @return HandlerInterface
      */
-    public function getHandler()
+    public function getHandler(): HandlerInterface
     {
         return $this->handler;
     }
@@ -119,9 +119,9 @@ class Logger implements LoggerInterface, EmitterInterface
      * Attach a logger filter on the end of list.
      * 
      * @param callable $filter
-     * @return self
+     * @return Logger
      */
-    public function pushFilter(callable $filter)
+    public function pushFilter(callable $filter): Logger
     {
         $this->filters[] = $filter;
         return $this;
@@ -132,7 +132,7 @@ class Logger implements LoggerInterface, EmitterInterface
      * 
      * @return callable
      */
-    public function popFilter()
+    public function popFilter(): callable
     {
         return \array_pop($this->filters);
     }
@@ -142,7 +142,7 @@ class Logger implements LoggerInterface, EmitterInterface
      * @param int|string $level
      * @param string $message
      * @param array $context
-     * @return self
+     * @return Logger
      */
     public function log($level, $message, array $context = array())
     {

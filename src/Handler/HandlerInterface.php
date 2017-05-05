@@ -14,7 +14,7 @@ interface HandlerInterface
      * 
      * @return int
      */
-    public function getHandledLevel();
+    public function getHandledLevel(): int;
 
     /**
      * Checks if a log level is handled by this handler.
@@ -22,13 +22,13 @@ interface HandlerInterface
      * @param int $level
      * @return bool
      */
-    public function isHandled($level);
+    public function isHandled(int $level): bool;
 
     /**
      * Process and writes a log.
      * 
      * @param array $log
-     * @return bool
+     * @return HandlerInterface
      */
-    public function handle(array $log);
+    public function handle(array $log): HandlerInterface;
 }

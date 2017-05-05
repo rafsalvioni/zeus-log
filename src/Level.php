@@ -49,7 +49,7 @@ final class Level
      * 
      * @return array
      */
-    public static function listLevels()
+    public static function listLevels(): array
     {
         static $list = [];
         if (empty($list)) {
@@ -66,7 +66,7 @@ final class Level
      * @param mixed $value
      * @return int
      */
-    public static function toLevel($value)
+    public static function toLevel($value): int
     {
         $level = 0;
         
@@ -93,10 +93,10 @@ final class Level
      * @param int $level
      * @return string
      */
-    public static function getLevelName($level)
+    public static function getLevelName(int $level)
     {
         $list = \array_flip(static::listLevels());
-        return \array_get($list, $level);
+        return $list[$level] ?? null;
     }
     
     /**
@@ -105,7 +105,7 @@ final class Level
      * @param int $level
      * @return bool
      */
-    public static function is($level)
+    public static function is(int $level): bool
     {
         return self::maskAll()->has($level);
     }
@@ -115,7 +115,7 @@ final class Level
      * 
      * @return BitMask
      */
-    public static function maskAll()
+    public static function maskAll(): BitMask
     {
         static $mask = null;
         if (\is_null($mask)) {
@@ -134,7 +134,7 @@ final class Level
      * 
      * @return BitMask
      */
-    public static function maskLower()
+    public static function maskLower(): BitMask
     {
         static $mask = null;
         if (empty($mask)) {
@@ -154,7 +154,7 @@ final class Level
      * 
      * @return BitMask
      */
-    public static function maskHigher()
+    public static function maskHigher(): BitMask
     {
         static $mask = null;
         if (empty($mask)) {
