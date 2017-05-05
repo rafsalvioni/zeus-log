@@ -3,7 +3,7 @@
 namespace Zeus\Log\Handler;
 
 use Zeus\Log\Formatter\FormatterInterface;
-use Zeus\Stream\StreamWrapper;
+use Zeus\Stream\Stream;
 
 /**
  * Handle logs to a file.
@@ -23,7 +23,7 @@ class FileHandler extends StreamHandler
         $level = 0,
         FormatterInterface $formatter = null
     ) {
-        $stream = StreamWrapper::open($filePath, 'a+');
+        $stream = Stream::open($filePath, 'a+');
         parent::__construct($stream, $level, $formatter);
     }
     
